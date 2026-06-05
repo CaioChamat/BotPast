@@ -1,8 +1,8 @@
 const https = require('https');
-const BOT_TOKEN='8862217647:AAHUK6sTht5sEKAAkqfP0rUSPQla_I-Sfhk'; //
-const CHAT_ID='-5163250767';
-const INTERVALO_MS = 10 * 60 * 1000; // 10 minutos
-const ANUNCIOS_POR_CICLO = 3;
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const CHAT_ID = process.env.CHAT_ID;
+const INTERVALO_MS = process.env.INTERVALO_MS ? Number(process.env.INTERVALO_MS) : 10 * 60 * 1000; // 10 minutos
+const ANUNCIOS_POR_CICLO = process.env.ANUNCIOS_POR_CICLO ? Number(process.env.ANUNCIOS_POR_CICLO) : 3;
 
 const PRODUTOS = [
   { titulo: '🚀 Multiprocessador Philco Turbo 5 EM 1 - 900W de Potência! Imperdível!', link: 'https://meli.la/2JompFT' },
@@ -87,7 +87,10 @@ async function ciclo() {
 }
 
 (async () => {
+  if (!process.env.BOT_TOKEN || !process.env.CHAT_ID) {
+    console.error('Faltam variáveis BOT_TOKEN ou CHAT_ID no Render!');
+    process.exit(1);
+  }
   console.log('Bot com', PRODUTOS.length, 'produtos. Enviando', ANUNCIOS_POR_CICLO, 'anuncios por ciclo.');
   await ciclo();
-  console.log('Ciclo finalizado. Workflow terminara em breve.');
 })();
