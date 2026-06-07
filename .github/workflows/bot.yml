@@ -2,7 +2,7 @@ name: Bot Telegram Ofertas
 
 on:
   schedule:
-    - cron: '*/10 * * * *'   # a cada 10 minutos
+    - cron: '*/3 * * * *'   # a cada 3 minutos
   workflow_dispatch:          # permite rodar manualmente
 
 # Permissões EXPLÍCITAS — sem isso o schedule não dispara
@@ -17,9 +17,9 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Rodar bot (envio de 3 ofertas)
+      - name: Rodar bot (envio de 1 oferta)
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          ANUNCIOS_POR_CICLO: ${{ vars.ANUNCIOS_POR_CICLO || secrets.ANUNCIOS_POR_CICLO || '3' }}
+          ANUNCIOS_POR_CICLO: ${{ vars.ANUNCIOS_POR_CICLO || secrets.ANUNCIOS_POR_CICLO || '1' }}
         run: node bot-telegram-ofertas.js

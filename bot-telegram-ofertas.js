@@ -3,7 +3,7 @@ const https = require('https');
 // --- CONFIG ---
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
-const ANUNCIOS_POR_CICLO = parseInt(process.env.ANUNCIOS_POR_CICLO || '3', 10);
+const ANUNCIOS_POR_CICLO = parseInt(process.env.ANUNCIOS_POR_CICLO || '1', 10);
 const DELAY_ENTRE_MSGS_MS = parseInt(process.env.DELAY_ENTRE_MSGS_MS || '2000', 10);
 
 // --- DADOS ---
