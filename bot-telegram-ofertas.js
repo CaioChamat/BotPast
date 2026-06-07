@@ -114,16 +114,7 @@ async function rodarCiclo() {
 
   console.log(`Bot iniciado — ${PRODUTOS.length} produtos, ${ANUNCIOS_POR_CICLO} por ciclo`);
 
-  // Empilha todos os produtos e embaralha
   const selecionados = shuffle(PRODUTOS).slice(0, Math.min(ANUNCIOS_POR_CICLO, PRODUTOS.length));
-
-  // Envia mensagem de abertura
-  try {
-    await enviarMensagem('🛍️ <b>Achadinhos do dia!</b> Confira as ofertas abaixo 👇');
-    await delay(1000);
-  } catch (e) {
-    console.error('Erro ao enviar abertura:', e.message);
-  }
 
   for (const produto of selecionados) {
     const frase = sorteiaFrase();
@@ -139,7 +130,6 @@ async function rodarCiclo() {
       console.log(`✅ Enviado: "${produto.titulo.substring(0, 40)}..." — message_id=${r.result?.message_id}`);
     } catch (e) {
       console.error(`❌ Erro ao enviar "${produto.titulo.substring(0, 40)}":`, e.message);
-      // Tenta 1 retry rápido
       await delay(1500);
       try {
         const r2 = await enviarMensagem(texto);
@@ -149,17 +139,10 @@ async function rodarCiclo() {
       }
     }
 
-    // Pausa entre mensagens para não ser bloqueado pelo Telegram
     await delay(DELAY_ENTRE_MSGS_MS);
   }
 
-  // Envia mensagem de encerramento / CTA
-  try {
-    await enviarMensagem('💡 <b>Fique de olho que tem mais!</b>\nA cada 10 minutos tem oferta nova por aqui. 🚀');
-    console.log('✅ Ciclo completo.');
-  } catch (e) {
-    console.error('Erro ao enviar fechamento:', e.message);
-  }
+  console.log('✅ Ciclo completo.');
 }
 
 // Executa e sai (o GitHub Actions chama de novo no próximo cron)
