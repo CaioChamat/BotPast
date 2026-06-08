@@ -6,7 +6,7 @@ const ANUNCIOS_POR_CICLO = parseInt(process.env.ANUNCIOS_POR_CICLO || '1', 10);
 const DELAY_ENTRE_MSGS_MS = parseInt(process.env.DELAY_ENTRE_MSGS_MS || '3000', 10);
 
 const PRODUTOS = [
-  { titulo: '🚀 Multiprocessador Philco Turbo 5 EM 1 - 900W!', link: 'https://meli.la/2JompFT' },
+  { titulo: '🚀 Multiprocessador Philco Turbo 5 EM 1 - 900W!', link: 'https://meli.la/2JompFT', precoAntigo: 'R$ 300', preco: 'R$ 200' },
   { titulo: '🧤 Luva de Látex Descartável 100 unidades', link: 'https://meli.la/1yzJoXc' },
   { titulo: '👧 Vestido Festa Junina Infantil - Arraia Caipira!', link: 'https://meli.la/1waphYV' },
   { titulo: '🎮 Controle DualSense PS5 Branco Sem Fio', link: 'https://meli.la/1rdJduG' },
@@ -117,13 +117,25 @@ async function enviarMensagem(produto) {
   const titulo = produto.titulo.replace(/[<>&]/g, '').trim();
   const link = produto.link;
 
-  const texto = [
-    titulo,
-    `Link: https://www.mercadolivre.com.br`,
-    link,
-    '',
-    frase,
-  ].join('\n');
+  const linhas = [titulo];
+
+  if (produto.precoAntigo || produto.preco) {
+    const antigo = produto.precoAntigo ? `De ${produto.precoAntigo}` : '';
+    const novo = produto.preco || '';
+    const desconto = calcularDesconto(produto.precoAntigo, produto.preco);
+
+    let precoTexto = '';
+    if (antigo && novo) {
+      precoTexto = `De ${antigo} por ${novo}${desconto ? ` (${desconto})` : ''}`;
+    } else if (novo) {
+      precoTexto = `Por ${novo}`;
+    }
+    if (precoTexto) linhas.push(precoTexto);
+  }
+
+  linhas.push('Link: https://www.mercadolivre.com.br', link, '', frase);
+
+  const texto = linhas.join('\n');
 
   const r = await callTelegram('sendMessage', {
     chat_id: CHAT_ID,
@@ -131,8 +143,21 @@ async function enviarMensagem(produto) {
     disable_web_page_preview: false,
   });
 
-  console.log(`✅ Enviado: "${produto.titulo.substring(0, 40)}..." — message_id=${r.result?.message_id}`);
+  console.log(`Enviado: "${titulo.substring(0, 40)}..." — message_id=${r.result?.message_id}`);
   return r;
+}
+
+function calcularDesconto(precoAntigo, precoNovo) {
+  if (!precoAntigo || !precoNovo) return '';
+
+  const valorAntigo = Number(String(precoAntigo).replace(/[^\d,.-]/g, '').replace(',', '.'));
+  const valorNovo = Number(String(precoNovo).replace(/[^\d,.-]/g, '').replace(',', '.'));
+
+  if (Number.isFinite(valorAntigo) && Number.isFinite(valorNovo) && valorAntigo > 0) {
+    const pct = Math.round(((valorAntigo - valorNovo) / valorAntigo) * 100);
+    return `-${pct}%`;
+  }
+  return '';
 }
 
 async function rodarCiclo() {
