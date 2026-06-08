@@ -38,7 +38,7 @@ const PRODUTOS = [
   { titulo: '🖥️ Monitor Gamer AOC AGON G42 24" 200Hz', link: 'https://meli.la/1ZHi4mN', precoAntigo: 'R$ 1.284,29', preco: 'R$ 929' },
   { titulo: '🖥️ Monitor Alltek 21.5" Full HD VA 100Hz', link: 'https://meli.la/1AZDznh', preco: 'R$ 378' },
   { titulo: '🖥️ Monitor Gaming LED Curva 23.6" 100Hz', link: 'https://meli.la/2y2rSfN', precoAntigo: 'R$ 886,99', preco: 'R$ 549,99' },
-  { titulo: '🖥️ Bicicleta Ergométrica Fitness 6kg Inércia', link: 'https://meli.la/2dJ6Uv5', precoAntigo: 'R$ 1.094,99', preco: 'R$ 549,90' },
+  { titulo: '🚲 Bicicleta Ergométrica Fitness 6kg Inércia', link: 'https://meli.la/2dJ6Uv5', precoAntigo: 'R$ 1.094,99', preco: 'R$ 549,90' },
   { titulo: '🪑 Cadeira Gamer com Apoio de Pés Level Preta Healer', link: 'https://meli.la/1bB3hNV', precoAntigo: 'R$ 670,41', preco: 'R$ 436,41' },
   { titulo: '🖱️ Mouse Gamer Redragon Cobra', link: 'https://meli.la/1ofQ2vM', precoAntigo: 'R$ 143,43', preco: 'R$ 88,19' },
   { titulo: '💪 Creatina Monohidratada 500g Growth Supplements', link: 'https://meli.la/2XitDnp', precoAntigo: 'R$ 104,90', preco: 'R$ 66,90' },
@@ -48,6 +48,19 @@ const PRODUTOS = [
   { titulo: '💪 Creatina 1kg Soldiers Nutrition 100% Pura', link: 'https://meli.la/1V8VBsy', precoAntigo: 'R$ 239,90', preco: 'R$ 59,90' },
   { titulo: '💪 Creatina Ultra 300g FTW', link: 'https://meli.la/24uYNR1', precoAntigo: 'R$ 45', preco: 'R$ 19,90' },
   { titulo: '💪 Creatina Monohidratada 500g Dark Lab', link: 'https://meli.la/1d8wTcZ', precoAntigo: 'R$ 129,90', preco: 'R$ 44,90' },
+
+  // Notebooks extras
+  { titulo: '💻 Notebook Asus Vivobook Go 15 Ryzen 5 7520U 16GB 512GB', link: 'https://meli.la/2vr3Wqa', precoAntigo: 'R$ 3.899', preco: 'R$ 3.185' },
+  { titulo: '💻 Notebook ASUS Vivobook Go 15 E1504 Ryzen 5 7520U 8GB 256GB', link: 'https://meli.la/2yrvNhu', precoAntigo: 'R$ 3.220', preco: 'R$ 2.909' },
+  { titulo: '💻 Notebook Acer Aspire Go 15 i5-13420H 8GB DDR5 256GB', link: 'https://meli.la/2Pwkdox', precoAntigo: 'R$ 5.717', preco: 'R$ 3.599' },
+  { titulo: '💻 Notebook Acer Aspire 5 Ryzen 5 5500U 16GB DDR4 512GB SSD 15,6"', link: 'https://meli.la/2smXvw2', precoAntigo: 'R$ 5.799', preco: 'R$ 3.812' },
+  { titulo: '💻 Notebook ASUS Vivobook 15 i5-1334U 8GB 256GB SSD 15,6" FHD', link: 'https://meli.la/2f47mkZ', precoAntigo: 'R$ 5.427', preco: 'R$ 3.508' },
+  { titulo: '💻 Notebook Gamer Lenovo LOQ 15irx9 i5-13450HX 16GB 512GB RTX 3050', link: 'https://meli.la/2oTYRu9', precoAntigo: 'R$ 9.509', preco: 'R$ 5.779' },
+  { titulo: '💻 Notebook Lenovo Yoga Slim 7i Ultra 5 125H 16GB 512GB Windows 11', link: 'https://meli.la/2HNq32t', precoAntigo: 'R$ 10.000', preco: 'R$ 6.299' },
+  { titulo: '💻 Notebook Acer Nitro V15 Ryzen 7 7735HS 16GB RTX 4050 1TB', link: 'https://meli.la/2f4rBSn', precoAntigo: 'R$ 12.499', preco: 'R$ 6.303' },
+  { titulo: '💻 Notebook Gamer Lenovo LOQ 15IRX9 i5-13450HX RTX 3050 8GB 512GB', link: 'https://meli.la/1zzotpL', precoAntigo: 'R$ 7.299', preco: 'R$ 5.799' },
+  { titulo: '💻 Notebook Gamer ASUS TUF A15 Ryzen 7 RTX 3050 8GB 512GB', link: 'https://meli.la/1A6JYUa', preco: 'R$ 5.999' },
+  { titulo: '💻 Notebook Lenovo Ideapad Slim 3 i7-13620H 16GB 512GB SSD', link: 'https://meli.la/2HWd9sB', precoAntigo: 'R$ 5.499', preco: 'R$ 4.399' },
 
   // AliExpress
   { titulo: '⌨️ Teclado Magnético Akko Tac75 He', link: 'https://s.click.aliexpress.com/e/_c3Werx0v', preco: 'R$ 189' },
