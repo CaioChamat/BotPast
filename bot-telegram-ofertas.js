@@ -118,16 +118,16 @@ async function enviarMensagem(produto) {
   const link = produto.link;
 
   const texto = [
-    `📢 <b>${titulo}</b>`,
-    `🔗 <a href="${link}">VER OFERTA NO MERCADO LIVRE</a>`,
-    ``,
+    titulo,
+    `Link: https://www.mercadolivre.com.br`,
+    link,
+    '',
     frase,
   ].join('\n');
 
   const r = await callTelegram('sendMessage', {
     chat_id: CHAT_ID,
     text: texto,
-    parse_mode: 'HTML',
     disable_web_page_preview: false,
   });
 
