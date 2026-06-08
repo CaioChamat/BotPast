@@ -124,16 +124,15 @@ async function enviarMensagem(produto) {
     const novo = produto.preco || '';
     const desconto = calcularDesconto(produto.precoAntigo, produto.preco);
 
-    let precoTexto = '';
     if (antigo && novo) {
-      precoTexto = `De ${antigo} por ${novo}${desconto ? ` (${desconto})` : ''}`;
+      linhas.push(`${antigo} por ${novo}`);
+      if (desconto) linhas.push(desconto);
     } else if (novo) {
-      precoTexto = `Por ${novo}`;
+      linhas.push(`Por ${novo}`);
     }
-    if (precoTexto) linhas.push(precoTexto);
   }
 
-  linhas.push('Link: https://www.mercadolivre.com.br', link, '', frase);
+  linhas.push('Ver oferta no Mercado Livre', link, '', frase);
 
   const texto = linhas.join('\n');
 
