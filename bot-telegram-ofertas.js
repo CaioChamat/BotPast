@@ -120,12 +120,12 @@ async function enviarMensagem(produto) {
   const linhas = [titulo];
 
   if (produto.precoAntigo || produto.preco) {
-    const antigo = produto.precoAntigo ? `De ${produto.precoAntigo}` : '';
+    const antigo = produto.precoAntigo ? String(produto.precoAntigo) : '';
     const novo = produto.preco || '';
     const desconto = calcularDesconto(produto.precoAntigo, produto.preco);
 
     if (antigo && novo) {
-      linhas.push(`${antigo} por ${novo}`);
+      linhas.push(`De ${antigo} por ${novo}`);
       if (desconto) linhas.push(desconto);
     } else if (novo) {
       linhas.push(`Por ${novo}`);
