@@ -132,7 +132,7 @@ async function enviarMensagem(produto) {
     }
   }
 
-  linhas.push('Ver oferta no Mercado Livre', link, '', frase);
+  linhas.push(link, '', frase);
 
   const texto = linhas.join('\n');
 
