@@ -10,7 +10,7 @@ on:
 # Permissões EXPLÍCITAS — sem isso o schedule não dispara
 permissions:
   contents: read
-  actions: read
+  actions: write
 
 jobs:
   enviar-ofertas:
