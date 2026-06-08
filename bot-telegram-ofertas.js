@@ -1,13 +1,10 @@
 const https = require('https');
 
-// --- CONFIG ---
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
 const ANUNCIOS_POR_CICLO = parseInt(process.env.ANUNCIOS_POR_CICLO || '1', 10);
-const DELAY_ENTRE_MSGS_MS = parseInt(process.env.DELAY_ENTRE_MSGS_MS || '2000', 10);
+const DELAY_ENTRE_MSGS_MS = parseInt(process.env.DELAY_ENTRE_MSGS_MS || '3000', 10);
 
-// --- DADOS ---
-// ⭐ EDITE AQUI: troque os links e frases para o novo grupo/bot ⭐
 const PRODUTOS = [
   { titulo: '🚀 Multiprocessador Philco Turbo 5 EM 1 - 900W!', link: 'https://meli.la/2JompFT' },
   { titulo: '🧤 Luva de Látex Descartável 100 unidades', link: 'https://meli.la/1yzJoXc' },
@@ -26,11 +23,35 @@ const PRODUTOS = [
   { titulo: '🧴 Kit Azzaro Pour Homme EDT 100mL + Gel', link: 'https://meli.la/1vjfmaD' },
   { titulo: '🚿 Lavadora Alta Pressão Vonder 1300 Libras', link: 'https://meli.la/2LSzdLj' },
   { titulo: '📚 Kit Livro de Colorir Comfy Cozy - Capa Dura', link: 'https://meli.la/1PrFrVn' },
+  { titulo: '🖱️ Mouse Sem Fio Recarregável', link: 'https://meli.la/2eDj57M' },
+  { titulo: '🖱️ Mouse Gamer Titorion MG001 Óptico 7200DPI', link: 'https://meli.la/1mrx61N' },
+  { titulo: '🖱️ Mouse Gamer Havit Ms1034 4800DPI', link: 'https://meli.la/21XP373' },
+  { titulo: '🖱️ Mouse Gamer Sem Fio Logitech G703 LIGHTSPEED', link: 'https://meli.la/2yiYwMR' },
+  { titulo: '🎮 Volante Gamer G920 Driving Force', link: 'https://meli.la/24k75aH' },
+  { titulo: '🖥️ Monitor LG UltraGear 24G411A-B 24" FHD 144Hz', link: 'https://meli.la/2bBsVc7' },
+  { titulo: '🖥️ Monitor 19" LED Widescreen HDMI VGA 75HZ', link: 'https://meli.la/2LgmcUu' },
+  { titulo: '🖥️ Monitor Viewpro MWV21 LED 21.5" Full HD', link: 'https://meli.la/1XAp1aG' },
+  { titulo: '🖥️ Monitor PC Gamer LG 24" IPS Full HD 100Hz', link: 'https://meli.la/1ZiPnJ8' },
+  { titulo: '🖥️ Monitor LG UltraGear 27G411A-B 27" FHD 144Hz', link: 'https://meli.la/1P2dXoH' },
+  { titulo: '🖥️ Monitor Gamer Samsung Odyssey G5 32" QHD 165Hz', link: 'https://meli.la/14RS8e3' },
+  { titulo: '🖥️ Monitor Gamer AOC AGON G42 24" 200Hz', link: 'https://meli.la/1ZHi4mN' },
+  { titulo: '🖥️ Monitor Alltek 21.5" Full HD VA 100Hz', link: 'https://meli.la/1AZDznh' },
+  { titulo: '🖥️ Monitor Gaming LED Curva 23.6" 100Hz', link: 'https://meli.la/2y2rSfN' },
+  { titulo: '🚲 Bicicleta Ergométrica Fitness 6kg Inércia', link: 'https://meli.la/2dJ6Uv5' },
+  { titulo: '🪑 Cadeira Gamer com Apoio de Pés Level Preta Healer', link: 'https://meli.la/1bB3hNV' },
+  { titulo: '🖱️ Mouse Gamer Redragon Cobra', link: 'https://meli.la/1ofQ2vM' },
+  { titulo: '💪 Creatina Monohidratada 500g Growth Supplements', link: 'https://meli.la/2XitDnp' },
+  { titulo: '💪 Creatina Monohidratada 250g Growth Supplements', link: 'https://meli.la/1VuoEc5' },
+  { titulo: '💪 Creatina Monohidratada Growth Creapure 250g', link: 'https://meli.la/2WDRrCF' },
+  { titulo: '💪 Creatina Monohidratada Pura 1kg Dark Lab', link: 'https://meli.la/11yyZDJ' },
+  { titulo: '💪 Creatina 1kg Soldiers Nutrition 100% Pura', link: 'https://meli.la/1V8VBsy' },
+  { titulo: '💪 Creatina Ultra 300g FTW', link: 'https://meli.la/24uYNR1' },
+  { titulo: '💪 Creatina Monohidratada 500g Dark Lab', link: 'https://meli.la/1d8wTcZ' },
 ];
 
 const FRASES_CHAMADA = [
   '🔥 Achado imperdível! Corre que o estoque voa!',
-  '💸 Desconto assim é raro — garante o seu!',
+  '💸 Desconto assim é raro — garanta o seu!',
   '⚡ Oferta-relâmpago! Não deixa passar!',
   '🎯 Achadinho do dia — confere agora!',
   '🏷️ Preço baixou! É hora de aproveitar!',
@@ -40,8 +61,6 @@ const FRASES_CHAMADA = [
   '🤩 Promoção especial, só por tempo limitado!',
   '👀 Achou que não ia ver? Olha isso aqui!',
 ];
-
-// --- UTILITÁRIOS ---
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -57,7 +76,7 @@ function sorteiaFrase() {
 }
 
 function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function callTelegram(method, body) {
@@ -93,59 +112,49 @@ function callTelegram(method, body) {
   });
 }
 
-async function enviarMensagem(texto) {
-  return callTelegram('sendMessage', {
+async function enviarMensagem(produto) {
+  const frase = sorteiaFrase();
+  const titulo = produto.titulo.replace(/[<>&]/g, '').trim();
+  const link = produto.link;
+
+  const texto = [
+    `📢 <b>${titulo}</b>`,
+    `🔗 <a href="${link}">VER OFERTA NO MERCADO LIVRE</a>`,
+    ``,
+    frase,
+  ].join('\n');
+
+  const r = await callTelegram('sendMessage', {
     chat_id: CHAT_ID,
     text: texto,
     parse_mode: 'HTML',
     disable_web_page_preview: false,
   });
+
+  console.log(`✅ Enviado: "${produto.titulo.substring(0, 40)}..." — message_id=${r.result?.message_id}`);
+  return r;
 }
 
-// --- LÓGICA PRINCIPAL ---
-
 async function rodarCiclo() {
-  if (!BOT_TOKEN) {
-    throw new Error('Variável BOT_TOKEN não definida');
-  }
-  if (!CHAT_ID) {
-    throw new Error('Variável CHAT_ID não definida');
-  }
+  if (!BOT_TOKEN) throw new Error('Variável BOT_TOKEN não definida');
+  if (!CHAT_ID) throw new Error('Variável CHAT_ID não definida');
 
   console.log(`Bot iniciado — ${PRODUTOS.length} produtos, ${ANUNCIOS_POR_CICLO} por ciclo`);
 
   const selecionados = shuffle(PRODUTOS).slice(0, Math.min(ANUNCIOS_POR_CICLO, PRODUTOS.length));
 
   for (const produto of selecionados) {
-    const frase = sorteiaFrase();
-    const texto = [
-      `📢 <b>${produto.titulo}</b>`,
-      `🔗 <a href="${produto.link}">Ver oferta no Mercado Livre</a>`,
-      ``,
-      frase,
-    ].join('\n');
-
     try {
-      const r = await enviarMensagem(texto);
-      console.log(`✅ Enviado: "${produto.titulo.substring(0, 40)}..." — message_id=${r.result?.message_id}`);
+      await enviarMensagem(produto);
     } catch (e) {
       console.error(`❌ Erro ao enviar "${produto.titulo.substring(0, 40)}":`, e.message);
-      await delay(1500);
-      try {
-        const r2 = await enviarMensagem(texto);
-        console.log(`✅ Retry OK: "${produto.titulo.substring(0, 40)}..." — message_id=${r2.result?.message_id}`);
-      } catch (e2) {
-        console.error(`❌ Falhou definitivamente:`, e2.message);
-      }
     }
-
     await delay(DELAY_ENTRE_MSGS_MS);
   }
 
   console.log('✅ Ciclo completo.');
 }
 
-// Executa e sai (o GitHub Actions chama de novo no próximo cron)
 (async () => {
   try {
     await rodarCiclo();
