@@ -101,7 +101,43 @@ const PRODUTOS = [
   { titulo: '💧 Water Cooler FREEZEMOD Industrial 240mm Dupla Camada', link: 'https://s.click.aliexpress.com/e/_c4UCzWxj', precoAntigo: 'R$ 661,80', preco: 'R$ 628,71' },
   { titulo: '💧 Water Cooler ROG RYUJIN 3ª Geração 360 ARGB Extreme', link: 'https://s.click.aliexpress.com/e/_c4NVWk4V', precoAntigo: 'R$ 3.187,13', preco: 'R$ 2.230,99' },
   { titulo: '🖥️ Monitor Gamer AOC B35 22B35HM23 21,5" 120Hz', link: 'https://s.click.aliexpress.com/e/_c4tCpt4t', precoAntigo: 'R$ 599', preco: 'R$ 484' },
-  { titulo: '🖥️ Monitor 24" AOC FHD 100Hz', link: 'https://s.click.aliexpress.com/e/_c4dHQsOD', precoAntigo: 'R$ 980', preco: 'R$ 482' },
+  { titulo: '🖥️ Monitor 24" AOC FHD 100Hz', link: 'https://meli.la/2bBsVc7', precoAntigo: 'R$ 980', preco: 'R$ 482' },
+
+  // Grupo 4
+  { titulo: '🖥️ Gabinete Gamer Mancer Cv700l Mid Tower', link: 'https://meli.la/2MfXBXv', precoAntigo: 'R$ 663,52', preco: 'R$ 261,36' },
+  { titulo: '💻 Placa de Vídeo Veineda RX5500 8GB GDDR6', link: 'https://s.click.aliexpress.com/e/_c3tHaurx', precoAntigo: 'R$ 1.169,07', preco: 'R$ 875,77' },
+  { titulo: '💾 Memoria Ram JUHOR DDR4 8GB 3200MHz', link: 'https://s.click.aliexpress.com/e/_c3OgNtHL', precoAntigo: 'R$ 617,10', preco: 'R$ 276,70' },
+  { titulo: '💻 Processador MD Ryzen 5 5500X3D 3GHz 6-Core 12-Thread Socket AM4', link: 'https://s.click.aliexpress.com/e/_c3gLD65', precoAntigo: 'R$ 1.847,38', preco: 'R$ 1.144,37' },
+  { titulo: '🎮 Controle Sem Fio 8BitDo Ultimate 2 para PC e Android com Joysticks TMR, Gatilhos Comutáveis, Controle de Movimento, 8 Velocidades', link: 'https://s.click.aliexpress.com/e/_c3M8DzYp', precoAntigo: 'R$ 344,65', preco: 'R$ 281,60' },
+  { titulo: '🎮 Controle Sem Fio GameSir Cyclone 2 Analógicos TMR Magnéticos Gatilhos Hall Effect 1000Hz + Dock de carregamento', link: 'https://s.click.aliexpress.com/e/_c2vYkaiD', precoAntigo: 'R$ 323,23', preco: 'R$ 249,70' },
+  { titulo: '🎮 Controle Sem Fio 8BitDo Ultimate 2 para PC e Android Evernight', link: 'https://s.click.aliexpress.com/e/_c3M6IoIZ', preco: 'R$ 245' },
+  { titulo: '⌚ Relógio Casio G-shock Masculino Digital DW-5600UHR-1DR', link: 'https://meli.la/212xYjj', preco: 'R$ 236' },
+  { titulo: '🎮 Machenike Controlador Gamepad Sem Fio, Hall Gatilho, Joystick, Botões Mecha-Táteis para Switch, PC, Android, IOS, G5 Pro, Elite', link: 'https://s.click.aliexpress.com/e/_c3ywJYkz', preco: 'R$ 197' },
+  { titulo: '💻 Ryzen 5 3500X (Usado)', link: 'https://s.click.aliexpress.com/e/_c37RsczX', preco: 'R$ 309' },
+  { titulo: '🎮 GameSir Nova 2 Lite Controlador de interruptor sem fio Bluetooth Gamepad com efeito Hall para Nintendo Switch, iPhone, Android, PC', link: 'https://s.click.aliexpress.com/e/_c3AJ3dzL', preco: 'R$ 101' },
+  { titulo: '🖱️ Mouse Attack Shark X11 com Dock Sem Fio 22000 DPI Bluetooth USB PAW3311', link: 'https://s.click.aliexpress.com/e/_c3h9sjbr', preco: 'R$ 86' },
+  { titulo: '🖱️ Mouse Delux M900 Pro, PAW3395, 8000hz, Com dock de carregamento', link: 'https://s.click.aliexpress.com/e/_c4d0PxZF', preco: 'R$ 172' },
+  { titulo: '🧴 Perfume Ralph Lauren Polo Sport EDT 100ml', link: 'https://meli.la/2p4QTTo', precoAntigo: 'R$ 399', preco: 'R$ 199' },
+  { titulo: '🪑 Cadeira de Escritório Giratória Columbus Presidente', link: 'https://meli.la/2g1P2Lp', precoAntigo: 'R$ 589', preco: 'R$ 279' },
+  { titulo: '🎙️ Microfone Fifine Ampligame A2', link: 'https://s.click.aliexpress.com/e/_c43C7UJT', preco: 'R$ 75' },
+  { titulo: '🧴 Perfume Masculino Carolina Herrera 212 VIP Black Eau de Parfum 200ml', link: 'https://meli.la/1dowBKD', preco: 'R$ 478' },
+  { titulo: '💾 Memória GUDGA DDR4 3200MHz/3600MHz/2666MHz 8GB/16GB/32G', link: 'https://s.click.aliexpress.com/e/_c3ds6mbF', preco: 'R$ 250,88' },
+  { titulo: '💾 Memória RAM GUDGA DDR4 8GB/16GB/32GB 2666 3200 3600 4000mhz', link: 'https://s.click.aliexpress.com/e/_c3gt3k5n', preco: 'R$ 229,98' },
+  { titulo: '💾 Memoria RAM JUHOR DDR4 8GB 3200MHz CL16', link: 'https://s.click.aliexpress.com/e/_c4rHoMZR', precoAntigo: 'R$ 617,10', preco: 'R$ 276,70' },
+  { titulo: '💾 Memória RAM JAZER DDR4 8GB 3200MHz', link: 'https://s.click.aliexpress.com/e/_c3uOHtQl', precoAntigo: 'R$ 634,26', preco: 'R$ 265,39' },
+  { titulo: '💾 Kllisre Memória DDR4 RAM 8GB 4GB 16GB 2400 2666 3200mhz', link: 'https://s.click.aliexpress.com/e/_c3cT9Cqh', precoAntigo: 'R$ 661,05', preco: 'R$ 270,04' },
+  { titulo: '💻 Processador CPU E5 2680V4 Xeon E5-2680V4 CPU 2,40 GHz 14 núcleos 35M 14NM E5-2680 V4 FCLGA2011-3 TPD 120W', link: 'https://s.click.aliexpress.com/e/_c3Cgt91b', precoAntigo: 'R$ 77,12', preco: 'R$ 63,11' },
+  { titulo: '🔊 Caixa de som para jogos FIFINE com som surround estéreo, alto-falante USB RGB', link: 'https://s.click.aliexpress.com/e/_c37stZdx', precoAntigo: 'R$ 350,59', preco: 'R$ 198,81' },
+  { titulo: '🔊 Tronsmart caixa de som, Mirtune S100 à prova dágua', link: 'https://s.click.aliexpress.com/e/_c3x5ydnX', precoAntigo: 'R$ 562,92', preco: 'R$ 339,44' },
+  { titulo: '🎙️ Microfone Fifine', link: 'https://s.click.aliexpress.com/e/_c4P7vQ2h', preco: 'R$ 237,45' },
+  { titulo: '💾 Bestoss M.2 Sata 3.0 2280 NGFF 530 MB/s 120 GB 128 GB 240 GB 256 GB 480 GB 512 GB 960 GB 1 TB SSD', link: 'https://s.click.aliexpress.com/e/_c3SVO8dB', preco: 'R$ 175,05' },
+  { titulo: '💾 KOOTION X15Lite PCIe M2 SSD NVME M.2 SSD Drive 1TB 512GB 256GB', link: 'https://s.click.aliexpress.com/e/_c3yCX5Q9', precoAntigo: 'R$ 632,29', preco: 'R$ 479,17' },
+  { titulo: '💾 Netac SSD NVME M2 1TB 2TB SSD 250GB 500GB M2', link: 'https://s.click.aliexpress.com/e/_c4ed3OTT', precoAntigo: 'R$ 1.707,42', preco: 'R$ 1.164,08' },
+  { titulo: '💾 KOOTION SSD SATA Disco Rígido 128GB 240GB 480GB 512GB 1TB', link: 'https://s.click.aliexpress.com/e/_c3hf84ap', precoAntigo: 'R$ 126,66', preco: 'R$ 54,74' },
+  { titulo: '🖱️ 45x40cm antiderrapante mousepad máscara menina', link: 'https://s.click.aliexpress.com/e/_c3VP3XE9', precoAntigo: 'R$ 16,85', preco: 'R$ 6,78' },
+  { titulo: '🛋️ Mesa Escrivaninha 120cm Industrial Estudo Escritório Pés Aço', link: 'https://meli.la/2y4x98D', preco: 'R$ 179,28' },
+  { titulo: '🛋️ Escrivaninha Industrial Mesa Estudo Aparador Office Aço Mdf', link: 'https://meli.la/2dnpUdb', preco: 'R$ 140,22' },
+  { titulo: '🛋️ Mesa de canto Madesa Lisboa para computador Bm Gamer marrom/branca', link: 'https://meli.la/2D4Wf5d', precoAntigo: 'R$ 729,40', preco: 'R$ 557,99' },
 ];
 
 const FRASES_CHAMADA = [
@@ -168,7 +204,6 @@ function callTelegram(method, body) {
 }
 
 async function enviarMensagem(produto, replyToMessageId = null) {
-async function enviarMensagem(produto) {
   const frase = sorteiaFrase();
   const titulo = produto.titulo.replace(/[<>&]/g, '').trim();
   const link = produto.link;
