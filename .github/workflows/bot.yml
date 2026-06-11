@@ -23,5 +23,5 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          ANUNCIOS_POR_CICLO: ${{ vars.ANUNCIOS_POR_CICLO || secrets.ANUNCIOS_POR_CICLO || '1' }}
+          ANUNCIOS_POR_CICLO: ${{ vars.ANUNCIOS_POR_CICLO || secrets.ANUNCIOS_POR_CICLO || '2' }},
         run: node bot-telegram-ofertas.js
