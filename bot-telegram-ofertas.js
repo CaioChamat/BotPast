@@ -168,6 +168,7 @@ function callTelegram(method, body) {
 }
 
 async function enviarMensagem(produto, replyToMessageId = null) {
+async function enviarMensagem(produto) {
   const frase = sorteiaFrase();
   const titulo = produto.titulo.replace(/[<>&]/g, '').trim();
   const link = produto.link;
